@@ -1,0 +1,109 @@
+/* --- RESTORE PREVIOUS RULES FOR FLOATING AND GRID --- */
+#grid-container {
+  position: relative;
+}
+#grid {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+html,body{
+	margin:0;
+	padding: 1px;
+}
+#left-side-panel{
+	height: calc(100vh - 8px);
+	width: 10vw;
+	border: 2px solid green;
+	margin: 0;
+	padding: 0;
+}
+body{
+	display: flex;
+	gap: 4px;
+}
+#grid{
+	flex: 1;
+	border: 2px solid blue;
+	background-color: white;
+    background-image: radial-gradient(#999 2px, transparent 1px);
+    background-size: 25px 25px;
+    position: relative;
+}
+.component-button{
+	border: 1px solid darkorange;
+	padding: 5px;
+	margin:3px;
+	&:hover{
+		background-color: lightyellow;
+		cursor: pointer;
+	}
+	&.selected{
+		background-color: orange;
+	}
+}
+.floating {
+  position: absolute;
+  z-index: 100;
+  width: 48px;
+  height: 48px;
+  background: lightyellow;
+  border: 1px solid orange;
+  display: flex;
+  user-select: none;
+  flex-direction: column;
+  align-items: center;    /* vertical center */
+  justify-content: center; /* horizontal center */
+  text-align: center;     /* optional for multiline text */
+}
+.logic{
+	height: 98px;
+}
+.output-1::before {
+  content: "";
+  position: absolute;
+  left: -4px;       /* offset outside the parent */
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  background: black;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+.input-1::after,.logic::after {
+  content: "";
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  background: black;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+.logic::before {
+  content: "";
+  position: absolute;
+  left: -4px;       /* offset from the edge */
+  top: 22px;        /* first dot */
+  width: 8px;
+  height: 8px;
+  background: black;
+  border-radius: 50%;
+  box-shadow: 0 47px 0 0 black; /* second dot 50px below the first */
+  transition: transform 0.2s, width 0.2s, height 0.2s;
+}
+#cursor-dot {
+  position: absolute;
+  width: 10px;       /* 5px radius */
+  height: 10px;
+  background: orange;
+  border-radius: 50%;
+  pointer-events: none;
+  display: none;     /* hidden by default */
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
