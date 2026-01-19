@@ -1,0 +1,28 @@
+{
+  "name": "grid",
+  "version": "1.0.0",
+  "description": "Kids Logic is a visual digital logic simulator for experimenting with basic logic gates and circuits. It features a drag-and-drop interface, interactive simulation, and visual feedback for learning and prototyping logic networks.",
+  "main": "buttons.js",
+  "scripts": {
+    "dev": "vite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nik-nenkov/kids-logic.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/nik-nenkov/kids-logic/issues"
+  },
+  "homepage": "https://github.com/nik-nenkov/kids-logic#readme",
+  "devDependencies": {
+    "@types/node": "^25.0.9",
+    "sass": "^1.97.2",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
+  }
+}

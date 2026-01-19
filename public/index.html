@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Kids Logic</title>
+	<link rel="stylesheet" href="/main.scss" />
+</head>
+<body>
+	<div id="left-side-panel">
+    <div class="component-button" data-type="input-switch">Input Switch</div> 
+    <div class="component-button" data-type="logic-and">Logic AND</div> 
+    <div class="component-button" data-type="logic-or">Logic OR</div> 
+    <div class="component-button" data-type="logic-not">Logic NOT</div> 
+    <div class="component-button" data-type="logic-xor">Logic XOR</div> 
+    <div class="component-button" data-type="logic-nand">Logic NAND</div> 
+    <div class="component-button" data-type="output-light">Output Light</div>
+    <div id="coords">this</div>
+    <div id="select">this</div>
+    <div id="selected-pin">pin:0</div>
+    <button id="start-sim-btn">Start Simulation</button>
+  </div>
+  <div id="grid-container" style="flex: 1; position: relative; height: 100vh;">
+    <svg id="grid" width="100%" height="100%" style="width: 100%; height: 100%; border: 2px solid blue; background-color: white; background-image: radial-gradient(#999 2px, transparent 1px); background-size: 25px 25px; display: block;"></svg>
+    <div id="cursor-dot"></div>
+  </div>
+  <script type="module" src="/main.ts"></script>
+</body>
+</html>
