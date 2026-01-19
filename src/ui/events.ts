@@ -86,7 +86,27 @@ import { renderWires } from './renderer.js';
 function removeSelected() {
 	state.selectedComponentType = null;
 	document.querySelectorAll('.component-button.selected').forEach(b => b.classList.remove('selected'));
+	// Remove floating preview if present
+	if (state.floatingDiv && state.floatingDiv.parentNode) {
+		state.floatingDiv.parentNode.removeChild(state.floatingDiv);
+	}
+	state.floatingDiv = null;
 }
+// Cancel selection on Escape or right-click
+function setupCancelSelectionEvents() {
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape' && state.selectedComponentType) {
+			removeSelected();
+		}
+	});
+	document.addEventListener('contextmenu', (e) => {
+		if (state.selectedComponentType) {
+			e.preventDefault();
+			removeSelected();
+		}
+	});
+}
+
 
 // Setup component button click events
 export function setupComponentButtons() {
@@ -96,10 +116,6 @@ export function setupComponentButtons() {
 			removeSelected();
 			btn.classList.add('selected');
 			state.selectedComponentType = btn.getAttribute('data-type');
-			// Remove any existing floatingDiv
-			if (state.floatingDiv && state.floatingDiv.parentNode) {
-				state.floatingDiv.parentNode.removeChild(state.floatingDiv);
-			}
 			const div = document.createElement('div');
 			div.className = 'floating';
 			div.style.zIndex = '1000';
@@ -137,6 +153,9 @@ export function setupComponentButtons() {
 			document.getElementById('grid-container')?.appendChild(div);
 		});
 	});
+
+	// Setup cancel selection events
+	setupCancelSelectionEvents();
 }
 
 // Global pin ID counter to guarantee unique pin IDs
